@@ -1,0 +1,15 @@
+Structure of Engine:
+
+NS r_engine:
+  C scene
+  NS object
+    C object
+    C material
+    C Mesh
+  NS render
+    C render
+    NS shaders
+      C perspective_projection
+    C resolution
+  NS utility
+    C colors
