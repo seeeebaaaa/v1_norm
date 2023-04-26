@@ -6,23 +6,23 @@ namespace r_engine {
 namespace object {
 class Vertex {
 public:
-  int x;
-  int y;
-  int z;
-  int w;
+  float x;
+  float y;
+  float z;
+  float w;
 };
 
 class VertexTexture {
 public:
-  int x;
-  int y;
+  float x;
+  float y;
 };
 
 class VertexNormal {
 public:
-  int x;
-  int y;
-  int z;
+  float x;
+  float y;
+  float z;
 };
 
 class Face {
@@ -40,6 +40,7 @@ class Mesh {
 
 public:
   Mesh();
+  void add_vertex(Vertex &vex);
 };
 } // namespace object
 } // namespace r_engine

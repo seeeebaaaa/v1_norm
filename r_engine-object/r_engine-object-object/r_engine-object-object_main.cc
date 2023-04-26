@@ -17,7 +17,8 @@ const std::string &object::get_name() {
 
 // obj mod
 object &object::set_obj(const std::string &obj_file_path) {
-  assert(this->type == t_Mesh && "Fatal Error: Cant set Mesh of this Object, cause it is not from type t_Mesh!");
+  assert(this->type == t_Mesh && "Error: Cant set Mesh of this Object, cause it is not from type t_Mesh!");
+  assert(std::filesystem::exists("./assets/" + obj_file_path) && "Error: the obj does not exit!");
   path_to_obj_file = obj_file_path;
   own_mesh = Mesh();
   // read from .obj file:
@@ -35,7 +36,14 @@ object &object::set_obj(const std::string &obj_file_path) {
       continue; // blank line
     // interpret line
     if (line_snippets[0] == "v") {
+      assert(line_snippets.size() >= 4 && "Error: Mistake in obj file! [not enought vertex coords]");
       // vertex
+      Vertex vex;
+      vex.x = std::stof(line_snippets[1]);
+      vex.y = std::stof(line_snippets[2]);
+      vex.z = std::stof(line_snippets[3]);
+      vex.w = line_snippets.size() == 5 ? std::stof(line_snippets[4]) : 1.0;
+      own_mesh.add_vertex(vex);
     } else if (line_snippets[0] == "vt") {
       // vertex texture coord
     } else if (line_snippets[0] == "vn") {

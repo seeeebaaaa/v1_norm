@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
 
   r_engine::object::object &cuby = main_scene.object_new("Cuby", r_engine::object::t_Mesh);
 
-  cuby.set_mesh("cube.obj");
+  cuby.set_obj("cube.obj");
   std::cout << "Obj name is: " << cuby.get_name() << std::endl;
 
   // set render reso
