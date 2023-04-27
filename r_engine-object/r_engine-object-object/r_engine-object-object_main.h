@@ -19,7 +19,7 @@ class object {
   object_type type;
   std::string name;
   std::string path_to_obj_file;
-
+  std::string path_to_mtl_file;
   // obj substance
   Mesh own_mesh;
   Material own_materials;

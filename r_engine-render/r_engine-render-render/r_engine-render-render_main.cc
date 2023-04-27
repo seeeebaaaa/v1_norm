@@ -35,8 +35,6 @@ void render::cast(const std::vector<object::object *> &scene_objects, const obje
   // just some garbage so that i can return sth and compile
   png::image<png::rgba_pixel> a(reso.res_x(), reso.res_y());
   // for test purpose fill with test data
-  std::cout << "Using canvas " << reso.res_x() << "x" << reso.res_y() << std::endl;
-  std::cout << "Using img " << a.get_width() << "x" << a.get_height() << std::endl;
   for (int x = 0; x < int(a.get_width()); x++) {
     for (int y = 0; y < int(a.get_height()); y++) {
       // always remember to convert to double when doing operations with colors/size, cause uint_32 will cause overflows and not good stuff

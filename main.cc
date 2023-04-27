@@ -22,7 +22,6 @@ int main(int argc, char **argv) {
 
   cuby.set_obj("cube.obj");
   std::cout << "Obj name is: " << cuby.get_name() << std::endl;
-
   // set render reso
   main_scene.render_resolution(200, 200);
   // render img + measure how long it takes to render

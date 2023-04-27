@@ -1,7 +1,7 @@
 #ifndef R_ENGINE_OBJECT_MESH_MAIN
 #define R_ENGINE_OBJECT_MESH_MAIN
+#include <string>
 #include <vector>
-
 namespace r_engine {
 namespace object {
 class Vertex {
@@ -27,9 +27,10 @@ public:
 
 class Face {
 public:
-  int vertex_id;
-  int vertexTexture_id;
-  int vertexNormal_id;
+  std::vector<int> vertex_id;
+  std::vector<int> vertexTexture_id;
+  std::vector<int> vertexNormal_id;
+  std::string usemtl;
 };
 
 class Mesh {
@@ -41,6 +42,10 @@ class Mesh {
 public:
   Mesh();
   void add_vertex(Vertex &vex);
+  void add_vertexTexture(VertexTexture &vt);
+  void add_vertexNormal(VertexNormal &vn);
+  void add_face(Face &f);
+  void print_vertecies();
 };
 } // namespace object
 } // namespace r_engine
